@@ -23,9 +23,7 @@ new Vue ({
                 done: 'false',
             },
         ],
-
         newTodoText: '',
-        
     },
     methods: {
         addTodo() {
