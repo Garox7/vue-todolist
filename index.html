@@ -10,8 +10,31 @@
     <!-- vue.js  -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.7.13/dist/vue.js" defer></script>
     <script src="javascript/script.js" defer></script>
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
     
+    <div id="app" class="todo__container">
+        <div class="logo">
+            <img src="img/logo.svg" alt="Logo">
+        </div>
+        
+        <div class="add__todo">
+            <input v-model="newTodoText" @keyup.enter="addTodo()" type="text" placeholder="Inserisci il tuo Todo">
+            <button @click="addTodo()">Aggiungi</button>
+        </div>
+        
+        <div class="todo-added__container">
+            <h2 v-if="todos.length === 0">Non ci sono Todo</h2>
+            <ul v-else>
+                <li v-for="(todo, i) in todos" class="todo">
+                    <div :class="todo.done == 'true' ? 'done' : ''">{{ todo.text }}</div>
+                    <i @click="deleteTodo(i)" class="fa-solid fa-xmark delete__todo"></i>
+                </li>
+            </ul>
+        </div>
+        
+    </div>
 </body>
 </html>
