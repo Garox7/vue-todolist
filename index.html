@@ -30,7 +30,10 @@
             <ul v-else>
                 <li v-for="(todo, i) in todos" class="todo">
                     <div :class="todo.done == 'true' ? 'done' : ''">{{ todo.text }}</div>
-                    <i @click="deleteTodo(i)" class="fa-solid fa-xmark delete__todo"></i>
+                    <div class="todo__controls">
+                        <i @click="doneTodo(i)" class="fa-solid fa-check check__todo" :class="todo.done == 'true' ? 'active' : ''"></i>
+                        <i @click="deleteTodo(i)" class="fa-solid fa-xmark delete__todo"></i>
+                    </div>
                 </li>
             </ul>
         </div>

@@ -94,8 +94,23 @@ li {
     border-bottom: 1px solid rgba(0, 0, 0, 0.173);
 }
 
-.delete__todo {
-    margin-left: 20px;
+.todo__controls {
+    display: flex;
+    gap: 1rem;
+    margin-left: 10px;
+}
+
+.check__todo:hover {
+    color: green;
+    cursor: pointer;
+}
+
+.check__todo.active {
+    color: green;
+}
+
+.check__todo.active:hover {
+    color: orange;
 }
 
 .todo-added__container .delete__todo:hover {
